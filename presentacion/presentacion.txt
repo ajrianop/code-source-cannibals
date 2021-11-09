@@ -1,3 +1,22 @@
 Presentación del equipo # code-source-cannibals
 
+<<<<<<< HEAD
 Soy Diego Arturo Niño Torres. Matemático egresado de la Universidad Nacional de Colombia, sede Bogotá. Me gusta el café.
+=======
+Integrantes:
+
+Contactos:
+
+Andrés Riaño: ajrianop@unal.edu.co
+
+
+Andres Jhovany Riaño Pulido: Profesión docente de Matemáticas con conocimientos básicos en programación.
+Interesado en diferentes áreas de matemáticas. Se encuentra realizando un doctorado en Matemáticas en el IMPA.
+Amante del Metal y el Rock, entre otra música variada. 
+
+Mi nombre es Camilo Rodríguez, tengo 25 años y no me gusta el tomate.
+
+Mi nombre es Paula Calderón, soy estudiante de Ingenería Mecatrónica en la Universidad Piloto de Colombia, tengo 26 años y vivo en Bogotá.
+
+Yazmin Pulido:  Profesion contadora, con expectativa de convertirme en una programadora con especilizacion en manejo de base de datos.
+>>>>>>> features
