@@ -1,10 +1,9 @@
 Presentación del equipo # code-source-cannibals
 
+
+
 Integrantes:
 
-Contactos:
-
-Andrés Riaño: ajrianop@unal.edu.co
 
 
 Andres Jhovany Riaño Pulido: Profesión docente de Matemáticas con conocimientos básicos en programación.
@@ -18,3 +17,5 @@ Mi nombre es Paula Calderón, soy estudiante de Ingenería Mecatrónica en la Un
 Yazmin Pulido:  Profesion contadora, con expectativa de convertirme en una programadora con especilizacion en manejo de base de datos.
 
 Soy Diego Arturo Niño Torres. Matemático egresado de la Universidad Nacional de Colombia, sede Bogotá. Me gusta el café.
+
+José Luis Pinzón. Soy biólogo, mi interés en la programación se enfoca en la automatización de procesos.
