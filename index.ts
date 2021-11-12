@@ -8,11 +8,11 @@ import { ObjectiveModel } from './models/objective';
 const main = async () => {
     await conectarBD();
 
-/*     const object = await ObjectiveModel.create({
+/*     const objet = await ObjectiveModel.create({
         descripcion: 'Este es el objetivo especifico',
         tipo: Enum_TipoObjetivo.especifico,
-    }) */;
-      ProjectModel.create({
+    }) ;*/
+/*      await ProjectModel.create({
         nombre: 'Proyecto 5',
         presupuesto: 120,
         fechaInicio: Date.now(),
@@ -20,9 +20,9 @@ const main = async () => {
         lider: '618d198c94e1cfdf36821a62',
         objetivos: ['618e522b533942e0346c7082', '618e52437de23e3a753026a3'], 
         
-    });  
+    });   */
 
-     const proyecto: any = await ProjectModel.find({ nombre: 'Proyecto 5'}).populate('lider').populate('objetivos');
+     const proyecto = await ProjectModel.find({ nombre: 'Proyecto 5'}).populate('lider').populate('objetivos');
     console.log('el proyecto es: ', JSON.stringify(proyecto)); 
 
     /* const lider = await UserModel.find({_id: proyecto[0].lider});

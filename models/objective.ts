@@ -5,7 +5,7 @@ import { ProjectModel } from './project';
 interface Objective {
     descripcion: string;
     tipo: Enum_TipoObjetivo;
-    proyecto: Schema.Types.ObjectId;
+    //proyecto: Schema.Types.ObjectId;
 }
 
 const objetivesSchema = new Schema<Objective>({
@@ -18,10 +18,10 @@ const objetivesSchema = new Schema<Objective>({
         enum: Enum_TipoObjetivo,
         required: true,
     },
-    proyecto: {
+   /*  proyecto: {
         type: Schema.Types.ObjectId,
         ref: ProjectModel,
-    },
+    }, */
 });
 
 const ObjectiveModel = model('Objetivo', objetivesSchema);
