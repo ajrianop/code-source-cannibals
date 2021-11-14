@@ -12,7 +12,7 @@ interface Proyecto {
     fase: Enum_FaseProyecto;
    // lider: string,
    lider: Schema.Types.ObjectId;
-   objetivos: [Schema.Types.ObjectId];
+   objetivos: [Schema.Types.ObjectId]; 
 }
 
 const projectSchema = new Schema<Proyecto>({
@@ -49,12 +49,12 @@ const projectSchema = new Schema<Proyecto>({
         required: true,
         ref: UserModel,
     },
-    objetivos : [
+     objetivos : [
         {
             type: Schema.Types.ObjectId,
             ref: ObjectiveModel,
         },
-    ],
+    ], 
 
 });
 
