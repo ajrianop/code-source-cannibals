@@ -44,7 +44,7 @@ const crearProyectoConObjetivos1 = async () => {
     });
 
     console.log('Proyecto creado', proyectoCreado);
-}
+};
 
 const consultaProyectoConObjetivos1 = async () => {
 
@@ -58,8 +58,9 @@ const consultaProyectoConObjetivos1 = async () => {
     const proyectoConObjetivos = {...proyecto, objetivos: objetivos};
     console.log('El proyecto con objetivos es:', proyectoConObjetivos);
     
-} 
+};
 
+//METODOLOGIA ONE TO MANY #2
 const crearProyectoConObjetivos2 = async () => {
     const usuarioInicial = await UserModel.create({
         nombre: 'Paula',
@@ -95,17 +96,47 @@ const crearProyectoConObjetivos2 = async () => {
     });
 
     console.log('Proyecto creado', proyectoCreado);
-}
+};
+
+const consultaProyectoConObjetivos2 = async () => {
+    const proyecto = await ProjectModel.find({_id: '6190932e8249e184a6a346db'}).populate('objetivos');
+    console.log('proyecto encontrado', JSON.stringify(proyecto));
+};
+
+const crearProyectoConObjetivos3 = async () => {
+    const usuarioInicial = await UserModel.create({
+        nombre: 'Paula',
+        apellido: 'Calderón',
+        correo: 'paula150995@hotmail.com',
+        identificacion: '123',
+        rol: Enum_Rol.administrador,
+        estado: Enum_EstadoUsuario.autorizado,
+    });
+
+    const proyectoCreado =  await ProjectModel.create({
+        nombre: 'Proyecto Mision TIC',
+        fechaInicio: new Date ('2021/12/24'),
+        fechaFin: new Date ('2022/12/24'),
+        presupuesto: 120000,
+        lider: usuarioInicial._id,
+        objetivos: [
+            { descripcion: 'Este es el objetivo general', tipo: Enum_TipoObjetivo.general },
+            { descripcion: 'Este es el objetivo especifico 1', tipo: Enum_TipoObjetivo.especifico },
+            { descripcion: 'Este es el objetivo especifico 2', tipo: Enum_TipoObjetivo.especifico },
+        ],
+    });
+};
+
+const consultaProyectoConObjetivos3 = async () => {
+    const proyectoCreado = await ProjectModel.find({_id: '6191c9abed90450b42bb5903'});
+    console.log('proyecto', proyectoCreado);
+   
+};
+
 const main = async () => {
     await conectarBD();
 
 
-
-    
-
- 
-    
-    
 };
 
 main();
