@@ -103,6 +103,7 @@ const consultaProyectoConObjetivos2 = async () => {
     console.log('proyecto encontrado', JSON.stringify(proyecto));
 };
 
+//METODOLOGIA ONE TO MANY #3
 const crearProyectoConObjetivos3 = async () => {
     const usuarioInicial = await UserModel.create({
         nombre: 'Paula',
