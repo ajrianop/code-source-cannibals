@@ -25,6 +25,7 @@ enum Enum_rol{
   }
   type Query {
     Usuarios: [Usuario]
+    Usuario(_id:String!): Usuario
   }
 
   type Mutation{
@@ -36,6 +37,18 @@ enum Enum_rol{
       estado: Enum_EstadoUsuario
       rol: Enum_rol!
     ):Usuario
+
+    editarUsuario(
+      _id: String!
+      nombre: String!
+      apellido: String!
+      identificacion: String!
+      correo: String!
+      estado: Enum_EstadoUsuario
+      rol: Enum_rol!
+    ):Usuario
+
+    eliminarUsuario(_id: String!): Usuario
   }
 
 `;
