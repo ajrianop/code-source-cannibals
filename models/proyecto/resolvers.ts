@@ -18,7 +18,7 @@ const resolversProyecto = {
         presupuesto: args.presupuesto,
         lider: args.lider,
         objetivos: args.objetivos,
-      });
+      })
       return ProyectoCreado;
     },
   },
