@@ -1,111 +1,12 @@
 import { gql } from 'apollo-server-express';
+import { typesEnums } from '../models/enums/types';
+import { typesUsuario } from '../models/usuario/types';
+import { typesProyecto } from '../models/proyecto/types';
+import { typesAvance } from '../models/avance/types';
 
-const typeDefs = gql`
-
+const typesGlobales = gql`
 scalar Date
-
-enum Enum_EstadoUsuario {
-  PENDIENTE
-  AUTORIZADO
-  NO_AUTORIZADO
-}
-
-enum Enum_rol{
-  ESTUDIANTE
-  LIDER
-  ADMINISTRADOR
-}
-
-enum Enum_EstadoProyecto {
-    ACTIVO 
-    INACTIVO 
-}
-
-enum Enum_FaseProyecto {
-    INICIADO 
-    DESARROLLO 
-    TERMINADO 
-    NULO 
-}
-
-enum Enum_TipoObjetivo {
-    GENERAL 
-    ESPECIFICO 
-}
-
-  type Usuario {
-    _id: ID!
-    nombre: String!
-    apellido: String!
-    identificacion: String!
-    correo: String!
-    rol: Enum_rol!
-    estado: Enum_EstadoUsuario
-  }
-
-  type Objetivo {
-    _id: ID!
-    descripcion: String!
-    tipo: Enum_TipoObjetivo!
-  }
-
-  input crearObjetivo{
-    descripcion: String!
-    tipo: Enum_TipoObjetivo!
-  }
-
-  type Proyecto {
-    _id: ID!
-    nombre: String!
-    presupuesto: Float!
-    fechaInicio: Date!
-    fechaFin: Date!
-    estado: Enum_EstadoProyecto!
-    fase: Enum_FaseProyecto!
-    lider: Usuario!
-    objetivos:[Objetivo] 
-  }
-
-  type Query {
-    Usuarios: [Usuario]
-    Usuario(_id:String!): Usuario
-    Proyectos: [Proyecto]
-  }
-
-  type Mutation{
-    crearUsuario(
-      nombre: String!
-      apellido: String!
-      identificacion: String!
-      correo: String!
-      estado: Enum_EstadoUsuario
-      rol: Enum_rol!
-    ):Usuario
-
-    editarUsuario(
-      _id: String!
-      nombre: String!
-      apellido: String!
-      identificacion: String!
-      correo: String!
-      estado: Enum_EstadoUsuario
-      rol: Enum_rol!
-    ):Usuario
-
-    eliminarUsuario(_id: String!): Usuario
-
-    crearProyecto(
-      nombre: String!
-      presupuesto: Float!
-      fechaInicio: Date!
-      fechaFin: Date!
-      estado: Enum_EstadoProyecto!
-      fase: Enum_FaseProyecto!
-      lider: String!
-      objetivos: [crearObjetivo]!
-      ):Proyecto
-  }
 
 `;
 
-export { typeDefs };
+export const types = [typesGlobales, typesEnums, typesUsuario, typesProyecto, typesAvance ];
