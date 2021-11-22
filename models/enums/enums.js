@@ -1,4 +1,4 @@
-enum Enum_Rol {
+/* enum Enum_Rol {
     ESTUDIANTE = 'ESTUDIANTE',
     LIDER = 'LIDER',
     ADMINISTRADOR = 'ADMINISTRADOR',
@@ -32,4 +32,4 @@ enum Enum_EstadoInscripcion {
     rechazada = 'Rechazada'
 }
 
-export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo, Enum_EstadoInscripcion };
+export { Enum_Rol, Enum_EstadoUsuario, Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo, Enum_EstadoInscripcion }; */

@@ -1,9 +1,11 @@
-import { Schema, model } from 'mongoose';
-import { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo } from '../enums/enums';
-import { ObjectiveModel } from '../objetivo';
-import { ModeloUsuario } from '../usuario/usuario';
+import mongoose from 'mongoose';
+//import { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_TipoObjetivo } from '../enums/enums.js';
+//import { ObjectiveModel } from '../objetivo.js';
+import { ModeloUsuario } from '../usuario/usuario.js';
 
-interface Proyecto {
+const { Schema, model } = mongoose;
+
+/* interface Proyecto {
     nombre: string;
     presupuesto: number;
     fechaInicio: Date;
@@ -14,9 +16,9 @@ interface Proyecto {
    lider: Schema.Types.ObjectId;
    //objetivos: [Schema.Types.ObjectId]; 
    objetivos: [{descripcion: string, tipo: Enum_TipoObjetivo}]
-}
+} */
 
-const proyectoSchema = new Schema<Proyecto>({
+const proyectoSchema = new Schema({
     nombre: {
         type: String,
         required: true,
@@ -36,13 +38,13 @@ const proyectoSchema = new Schema<Proyecto>({
     },
     estado: {
         type: String,
-        enum: Enum_EstadoProyecto,
-        default: Enum_EstadoProyecto.INACTIVO,
+        enum: ['ACTIVO', 'INACTIVO'],
+        default: 'INACTIVO',
     },
     fase: {
         type: String,
-        enum: Enum_FaseProyecto,
-        default: Enum_FaseProyecto.NULO,
+        enum: ['INICIADO', 'DESARROLLO', 'TERMINADO', 'NULO'],
+        default: 'NULO',
     },
     lider: {
         // type: String,
@@ -56,7 +58,7 @@ const proyectoSchema = new Schema<Proyecto>({
             ref: ObjectiveModel,
         },
     ],  */
-    objetivos : [
+    objetivos: [
         {
             descripcion: {
                 type: String,
@@ -64,12 +66,28 @@ const proyectoSchema = new Schema<Proyecto>({
             },
             tipo: {
                 type: String,
-                enum: Enum_TipoObjetivo,
+                enum: ['GENERAL', 'ESPECIFICO'],
                 required: true,
             },
         }
     ]
 
+},
+    {
+        toJSON: { virtuals: true }, // So `res.json()` and other `JSON.stringify()` functions include virtuals
+        toObject: { virtuals: true } // So `console.log()` and other functions that use `toObject()` include virtuals
+    });
+
+proyectoSchema.virtual('avances', {
+    ref: 'Avance',
+    localField: '_id',
+    foreignField: 'proyecto',
+});
+
+proyectoSchema.virtual('inscripciones', {
+    ref: 'Inscripcion',
+    localField: '_id',
+    foreignField: 'proyecto',
 });
 
 const ModeloProyecto = model('Proyecto', proyectoSchema);
