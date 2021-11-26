@@ -8,7 +8,7 @@ enum Enum_EstadoUsuario {
   NO_AUTORIZADO
 }
 
-enum Enum_rol{
+enum Enum_Rol{
   ESTUDIANTE
   LIDER
   ADMINISTRADOR
