@@ -53,6 +53,16 @@ const resolversUsuario = {
         return usuarioEliminado;
       }
     },
+
+    // Arthur y Andy ******
+
+    listaFiltrada: async (parent, args) => {
+      const listaFiltrada = await ModeloUsuario.find(args.rol);
+      return usuarioEditado;
+    },
+
+    // Arthur y Andy ******
+
   },
 };
 
