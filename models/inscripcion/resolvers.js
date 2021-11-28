@@ -34,6 +34,16 @@ const resolverInscripciones = {
             { new: true });
             return inscripcionAprobada;
         },
+
+        rechazarInscripcion: async (parents, args) => {
+            const inscripcionRechaza = await ModeloInscripcion.findByIdAndUpdate(args.id,{
+                estado:'RECHAZADO',
+                fechaIngreso: Date.now(),
+            },
+            { new: true });
+            return inscripcionRechaza;
+        },
+
     },
 };
 
