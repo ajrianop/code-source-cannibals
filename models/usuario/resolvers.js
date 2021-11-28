@@ -62,6 +62,17 @@ const resolversUsuario = {
       }
     },
 
+    // Arthur y Andy ******
+
+    editarEstadoUsuario: async (parents, args) => {
+      const editarEstadoUsuario = await ModeloUsuario.findByIdAndUpdate(args._id,{
+        estado: 'AUTORIZADO',
+      },
+      { new: true });
+      return editarEstadoUsuario;
+    }
+    
+    // Arthur y Andy ******
 
   },
 };

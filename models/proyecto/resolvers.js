@@ -6,6 +6,9 @@ const resolversProyecto = {
       const proyectos = await ModeloProyecto.find().populate('lider').populate('avances').populate('inscripciones');
       return proyectos;
     },
+    // Arthur y Andy ******
+    
+    // Arthur y Andy ******
   },
   Mutation: {
     crearProyecto: async (parent, args) => {

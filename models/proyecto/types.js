@@ -29,6 +29,7 @@ const typesProyecto = gql`
 
   type Query {
     Proyectos: [Proyecto]
+    
   }
 
   type Mutation{

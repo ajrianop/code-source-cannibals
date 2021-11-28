@@ -50,6 +50,8 @@ const typesUsuario = gql`
 
     eliminarUsuario(_id: String!): Usuario
 
+    editarEstadoUsuario(_id:String!):Usuario
+
   }
 
 `;
