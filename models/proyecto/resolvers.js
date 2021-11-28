@@ -21,6 +21,15 @@ const resolversProyecto = {
       })
       return ProyectoCreado;
     },
+
+    editarProyecto: async (parent, args) => {
+      const ProyectoEditado = await ModeloProyecto.findByIdAndUpdate(
+        args._id,
+        { ...args.campos },
+        {new: true}
+      );
+      return ProyectoEditado;
+    },
   },
 };
 
