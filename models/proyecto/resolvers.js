@@ -7,7 +7,10 @@ const resolversProyecto = {
       return proyectos;
     },
     // Arthur y Andy ******
-    
+    Proyecto: async (parent, args) => {
+      const proyectos = await ModeloProyecto.findOne({_id: args._id}).populate('lider').populate('avances').populate('inscripciones');
+      return proyectos;
+    },
     // Arthur y Andy ******
   },
   Mutation: {
