@@ -12,6 +12,7 @@ const typesUsuario = gql`
     estado: Enum_EstadoUsuario
   }
 
+
   type Objetivo {
     _id: ID!
     descripcion: String!
