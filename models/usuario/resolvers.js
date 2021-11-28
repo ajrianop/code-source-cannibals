@@ -12,7 +12,7 @@ const resolversUsuario = {
     },
     // Arthur y Andy ******
 
-    listaFiltrada: async (parent, args) => {
+    listaFiltradaRol: async (parent, args) => {
       const lista = await ModeloUsuario.find({rol: args.rol});
       return lista;
     },
