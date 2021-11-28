@@ -10,6 +10,14 @@ const resolversUsuario = {
       const usuario = await ModeloUsuario.findOne({_id: args._id});
       return usuario;
     },
+    // Arthur y Andy ******
+
+    listaFiltrada: async (parent, args) => {
+      const lista = await ModeloUsuario.find({rol: args.rol});
+      return lista;
+    },
+
+    // Arthur y Andy ******
   },
   Mutation: {
     crearUsuario: async (parent, args) => {
@@ -54,14 +62,6 @@ const resolversUsuario = {
       }
     },
 
-    // Arthur y Andy ******
-
-    listaFiltrada: async (parent, args) => {
-      const listaFiltrada = await ModeloUsuario.find(args.rol);
-      return usuarioEditado;
-    },
-
-    // Arthur y Andy ******
 
   },
 };
