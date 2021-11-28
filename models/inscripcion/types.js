@@ -12,6 +12,7 @@ const typesInscripcion = gql`
 
     type Query{
         Inscripciones: [Inscripcion]
+        listaSolicitudesPendientes(estado: Enum_EstadoInscripcion!):[Inscripcion]
     }
 
     type Mutation{

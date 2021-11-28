@@ -6,6 +6,14 @@ const resolverInscripciones = {
             const inscripciones = await ModeloInscripcion.find();
             return inscripciones;
         },
+
+
+        // Arthur y Andy ******
+        listaSolicitudesPendientes: async (parents, args) => {
+            const listaSolicitudesPendientes = await ModeloInscripcion.find({estado: "PENDIENTE"});
+            return listaSolicitudesPendientes;
+        },
+        // Arthur y Andy ******
     },
 
     Mutation: {
