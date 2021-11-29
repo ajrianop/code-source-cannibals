@@ -13,6 +13,14 @@ const resolverInscripciones = {
             return inscripcionesPorEstudiante.filter((inscripcion)=> inscripcion.estudiante.id = args.id )
             
         },
+        FiltrarInscripcion: async (parents, args) => {
+            const inscripcionFiltrada = await ModeloInscripcion.find({ estudiante: args._id })
+                .populate('proyecto')
+                .populate('estudiante');
+            return inscripcionFiltrada;
+        },
+
+
     },
 
     Mutation: {
