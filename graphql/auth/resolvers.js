@@ -29,8 +29,9 @@ const resolversAutenticacion = {
     },
 
     login: async (parent, args) => {
-      const usuarioEncontrado = await UserModel.findOne({ correo: args.correo });
+      const usuarioEncontrado = await ModeloUsuario.findOne({ correo: args.correo });
       if (await bcrypt.compare(args.password, usuarioEncontrado.password)) {
+        console.log("login ok", usuarioEncontrado.correo);
         return {
           token: generateToken({
             _id: usuarioEncontrado._id,
@@ -42,9 +43,16 @@ const resolversAutenticacion = {
           }),
         };
       }
+      else{
+        console.log("error de contraseña");
+      }
     },
 
-    
+    refreshToken: async (parent, args, context) => {
+     // console.log('contexto', context);
+      // valdiar que el contexto tenga info del usuario. si si, refrescar el token
+      // si no devolver null para que en el front redirija al login.
+    },
   },
 };
 
