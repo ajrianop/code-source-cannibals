@@ -26,6 +26,7 @@ const resolverInscripciones = {
             return inscripcionCreada;
         },
 
+        // Arthur y Andy ******
         aprobarInscripcion: async (parents, args) => {
             const inscripcionAprobada = await ModeloInscripcion.findByIdAndUpdate(args.id,{
                 estado:'ACEPTADO',
@@ -43,7 +44,8 @@ const resolverInscripciones = {
             { new: true });
             return inscripcionRechaza;
         },
-
+        // Arthur y Andy ******
+        
     },
 };
 

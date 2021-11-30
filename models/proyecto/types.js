@@ -45,6 +45,9 @@ const typesProyecto = gql`
       lider: String!
       objetivos: [crearObjetivo]!
       ):Proyecto
+
+      actualizarProyectoActivo(_id: String!): Proyecto
+
   }
 
 `;

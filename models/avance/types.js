@@ -23,6 +23,9 @@ type Mutation {
     proyecto: String!
     creadoPor: String! 
     ): Avance
+
+    agregarObservaciones(_id: String!):Avance
+
 }
 `;
 
