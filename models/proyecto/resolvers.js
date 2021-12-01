@@ -13,6 +13,16 @@ const resolversProyecto = {
       .populate('lider').populate('avances').populate('inscripciones');
       return proyectos;
     },
+    
+    //HISTORIA 14  REVISAR
+    
+    proyectosLiderado: async (parent, args)=>{
+      const proyectoLiderado = await ModeloProyecto.find({lider: args._id})
+      .populate('lider')
+      .populate('avances').populate('inscripciones')
+      console.log(proyectoLiderado)
+      return proyectoLiderado
+    }
     // Arthur y Andy ******
   },
   Mutation: {
@@ -40,7 +50,6 @@ const resolversProyecto = {
       {new:true})
       return actualizarProyectoActivo;
     },
-
     // Arthur y Andy ******
   },
 };
