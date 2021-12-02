@@ -41,15 +41,38 @@ const resolversProyecto = {
     },
 
     // Arthur y Andy ******
-    actualizarProyectoActivo: async (parent, args) => {
-      const actualizarProyectoActivo = await ModeloProyecto.findByIdAndUpdate(args._id,{
-        nombre: args.nombre,
-        
+    //HISTORIA 14
+
+    crearObjetivo: async (parents, args)=>{
+      const proyectoConObjetivo =await ModeloProyecto.findByIdAndUpdate(args._id,{
+        nombre:args.nombre,
         presupuesto: args.presupuesto,
+        $addToSet : {
+          objetivos:{
+            descripcion: args.descripcion,
+            tipo: args.tipo,
+          },
+        },
+      },{new: true}
+      )
+      return proyectoConObjetivo
+    },
+
+    /*actualizarProyectoActivo: async (parent, args) => {
+      const actualizarProyectoActivo = await ModeloProyecto.findByIdAndUpdate(args.idProyecto,{
+        nombre: args.nombre,
+        presupuesto: args.presupuesto,
+        $addToSet:{
+          objetivos:{
+            descripcion:args.descripcion,
+            tipo: args.tipo,
+          }
+        }
       },
       {new:true})
       return actualizarProyectoActivo;
-    },
+    },*/
+
     // Arthur y Andy ******
   },
 };

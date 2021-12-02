@@ -46,7 +46,17 @@ const typesProyecto = gql`
       objetivos: [crearObjetivo]!
       ):Proyecto
 
-      actualizarProyectoActivo(_id: String!): Proyecto
+      actualizarProyectoActivo(
+        idProyecto: String!
+        ): Proyecto
+      
+      crearObjetivo(
+        _id: String!
+        nombre: String
+        presupuesto: Float
+        descripcion: String!
+        tipo: Enum_TipoObjetivo!
+        ):Proyecto
 
   }
 
