@@ -23,7 +23,7 @@ const resolversProyecto = {
         presupuesto: args.presupuesto,
         lider: args.lider,
         objetivos: args.objetivos,
-      })
+      });
       return ProyectoCreado;
     },
     //mutación cambiar caracteristicas o atributos de un proyecto a partir de su id
