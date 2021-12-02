@@ -29,6 +29,10 @@ const usuarioSchema = new Schema({
                 }, message: 'Correo con formato erroneo', */
         },
     },
+    password: {
+        type: String,
+        required: true,
+    },
     identificacion: {
         type: String,
         required: true,
