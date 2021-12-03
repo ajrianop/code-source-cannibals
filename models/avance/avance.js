@@ -21,7 +21,7 @@ const AvanceSchema = new Schema({
         type: String,
         required: true,
     },
-    observaciones: [
+    observaciones : [
         {
             type: String,
         }

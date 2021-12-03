@@ -28,17 +28,18 @@ const resolversAvance = {
         },
 
         // Arthur y Andy ******
+
+        //  HISTORIA 18*
+        agregarObservacionesAvance: async (parents, args)=>{
+            const agregarObservacionesAvance =await ModeloAvance.findByIdAndUpdate(args._id,{
+              $addToSet : {
+                observaciones: args.observaciones,
+              },
+            },{new: true}
+            )
+            return agregarObservacionesAvance
+          },
         
-        /*  HISTORIA 18!!!!!! HELP ME
-            agregarObservaciones: async(parents,args) =>{
-            const agregarObservaciones = await ModeloAvance.findByIdAndUpdate(_id.args,{
-
-            },
-            {new:true});
-            return agregarObservaciones
-        }
-        */
-
         // Arthur y Andy ******
     },
 };
