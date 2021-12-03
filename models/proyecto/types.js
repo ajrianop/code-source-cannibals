@@ -65,6 +65,8 @@ const typesProyecto = gql`
     Proyectos: [Proyecto]
     ProyectosPorIDEstudiante(nombre:String!): [Proyecto]
     estado(estado: String!): [Proyecto]
+    Proyecto(_id: String!): Proyecto
+    proyectosLiderado(_id: String!): [Proyecto]
   }
 
 
@@ -80,7 +82,6 @@ const typesProyecto = gql`
       lider: String!
       objetivos: [crearObjetivo]!
       ):Proyecto
-   
 
      editarProyecto(
        _id: String!
@@ -107,7 +108,18 @@ const typesProyecto = gql`
 
       eliminarProyecto(_id: String!): Proyecto
 
+      actualizarProyectoActivo(
+        idProyecto: String!
+        ): Proyecto
       
+      crearObjetivo(
+        _id: String!
+        nombre: String
+        presupuesto: Float
+        descripcion: String!
+        tipo: Enum_TipoObjetivo!
+        ):Proyecto
+
   }
   
 

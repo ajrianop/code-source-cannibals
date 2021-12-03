@@ -14,6 +14,7 @@ const typesInscripcion = gql`
         Inscripciones: [Inscripcion]
         InscripcionesPorEstudiante(id: String!): [Inscripcion]
         FiltrarInscripcion(_id: String!): [Inscripcion] 
+        listaSolicitudesPendientes(estado: Enum_EstadoInscripcion!):[Inscripcion]
     }
 
     type Mutation{
@@ -26,6 +27,7 @@ const typesInscripcion = gql`
         ): Inscripcion
 
         aprobarInscripcion(id: String!): Inscripcion
+        rechazarInscripcion(id: String!): Inscripcion
     }
 `;
 

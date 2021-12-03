@@ -21,8 +21,25 @@ const resolversProyecto = {
       
       return proyectosPorEstado.filter((proyecto)=> proyecto.inscripciones.estado === args.estado)
       
-    }
+    },
 
+    // Arthur y Andy ******
+    Proyecto: async (parent, args) => {
+      const proyectos = await ModeloProyecto.findOne({_id: args._id})
+      .populate('lider').populate('avances').populate('inscripciones');
+      return proyectos;
+    },
+    
+    //HISTORIA 14  REVISAR
+    
+    proyectosLiderado: async (parent, args)=>{
+      const proyectoLiderado = await ModeloProyecto.find({lider: args._id})
+      .populate('lider')
+      .populate('avances').populate('inscripciones')
+      console.log(proyectoLiderado)
+      return proyectoLiderado
+    }
+    // Arthur y Andy ******
   },
  
   
@@ -43,15 +60,6 @@ const resolversProyecto = {
       })
       return ProyectoCreado;
     },
-
-    // editarProyecto: async (parent, args) => {
-    //   const ProyectoEditado = await ModeloProyecto.findByIdAndUpdate(
-    //     args._id,
-    //     { ...args.campos },
-    //     {new: true}
-    //   );
-    //   return ProyectoEditado;
-    // },
 
     editarProyecto: async (parent, args) => {
       const proyectoEditado = await ModeloProyecto.findByIdAndUpdate(args._id,{
@@ -89,6 +97,25 @@ const resolversProyecto = {
       return proyectoEliminado
     }
 
+    // Arthur y Andy ******
+    //HISTORIA 14
+
+    crearObjetivo: async (parents, args)=>{
+      const proyectoConObjetivo =await ModeloProyecto.findByIdAndUpdate(args._id,{
+        nombre:args.nombre,
+        presupuesto: args.presupuesto,
+        $addToSet : {
+          objetivos:{
+            descripcion: args.descripcion,
+            tipo: args.tipo,
+          },
+        },
+      },{new: true}
+      )
+      return proyectoConObjetivo
+    },
+
+    // Arthur y Andy ******
   },
   
 };

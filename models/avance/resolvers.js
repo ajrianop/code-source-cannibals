@@ -27,6 +27,7 @@ const resolversAvance = {
             return avanceCreado;
         },
 
+
         editarAvance: async (parent, args) => {
             const avanceEditado = await ModeloAvance.findByIdAndUpdate(args._id,{
               descripcion: args.descripcion,
@@ -34,6 +35,22 @@ const resolversAvance = {
             { new: true });
             return avanceEditado;
           },
+
+        // Arthur y Andy ******
+
+        //  HISTORIA 18*
+        agregarObservacionesAvance: async (parents, args)=>{
+            const agregarObservacionesAvance =await ModeloAvance.findByIdAndUpdate(args._id,{
+              $addToSet : {
+                observaciones: args.observaciones,
+              },
+            },{new: true}
+            )
+            return agregarObservacionesAvance
+          },
+        
+        // Arthur y Andy ******
+
     },
 
 };
