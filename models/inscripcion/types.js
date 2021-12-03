@@ -12,14 +12,13 @@ const typesInscripcion = gql`
 
     type Query{
         Inscripciones: [Inscripcion]
-        InscripcionesPorEstudiante(id: String!): [Inscripcion]
         FiltrarInscripcion(_id: String!): [Inscripcion] 
         listaSolicitudesPendientes(estado: Enum_EstadoInscripcion!):[Inscripcion]
     }
 
     type Mutation{
         crearInscripcion(
-            estado: Enum_EstadoInscripcion!
+            """ estado: Enum_EstadoInscripcion! """
             fechaIngreso: Date
             fechaEgreso: Date
             proyecto: String!
