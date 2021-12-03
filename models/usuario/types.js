@@ -12,6 +12,7 @@ const typesUsuario = gql`
     estado: Enum_EstadoUsuario
   }
 
+
   type Objetivo {
     _id: ID!
     descripcion: String!
@@ -41,10 +42,10 @@ const typesUsuario = gql`
 
     editarUsuario(
       _id: String!
-      nombre: String!
-      apellido: String!
-      identificacion: String!
-      correo: String!
+      nombre: String
+      apellido: String
+      identificacion: String
+      correo: String
       estado: Enum_EstadoUsuario!
     ):Usuario
 

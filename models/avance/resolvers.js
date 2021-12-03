@@ -27,6 +27,15 @@ const resolversAvance = {
             return avanceCreado;
         },
 
+
+        editarAvance: async (parent, args) => {
+            const avanceEditado = await ModeloAvance.findByIdAndUpdate(args._id,{
+              descripcion: args.descripcion,
+            },
+            { new: true });
+            return avanceEditado;
+          },
+
         // Arthur y Andy ******
 
         //  HISTORIA 18*
@@ -41,7 +50,9 @@ const resolversAvance = {
           },
         
         // Arthur y Andy ******
+
     },
+
 };
 
 export { resolversAvance };

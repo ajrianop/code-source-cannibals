@@ -6,6 +6,20 @@ const resolverInscripciones = {
             const inscripciones = await ModeloInscripcion.find();
             return inscripciones;
         },
+      
+        InscripcionesPorEstudiante: async (parents, args) => {
+            const inscripcionesPorEstudiante = await ModeloInscripcion.find()
+            .populate('proyecto').populate('estudiante');
+            console.log(inscripcionesPorEstudiante.filter((inscripcion)=> inscripcion.estudiante.id = args.id ))
+            return inscripcionesPorEstudiante.filter((inscripcion)=> inscripcion.estudiante.id = args.id )
+            
+        },
+        FiltrarInscripcion: async (parents, args) => {
+            const inscripcionFiltrada = await ModeloInscripcion.find({ estudiante: args._id })
+                .populate('proyecto')
+                .populate('estudiante');
+            return inscripcionFiltrada;
+        },
 
 
         // Arthur y Andy ******
@@ -14,6 +28,7 @@ const resolverInscripciones = {
             return listaSolicitudesPendientes;
         },
         // Arthur y Andy ******
+
     },
 
     Mutation: {
@@ -30,7 +45,7 @@ const resolverInscripciones = {
         aprobarInscripcion: async (parents, args) => {
             const inscripcionAprobada = await ModeloInscripcion.findByIdAndUpdate(args.id,{
                 estado:'ACEPTADO',
-                fechaIngreso: Date.now(),
+                fechaIngreso: Date.now(),   
             },
             { new: true });
             return inscripcionAprobada;
