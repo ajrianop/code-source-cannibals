@@ -6,7 +6,7 @@ const resolversProyecto = {
     Proyectos: async (parent, args) => {
       const proyectos = await ModeloProyecto.find().populate('lider')
       .populate('avances').populate({path: 'inscripciones',populate: {path: 'estudiante',},});
-      console.log(proyectos)
+      /*console.log(proyectos)*/
       return proyectos;
     },
     ProyectosPorIDEstudiante: async (parent, args) => {
@@ -95,7 +95,7 @@ const resolversProyecto = {
     eliminarProyecto: async (parent, args) => {
       const proyectoEliminado = await ModeloProyecto.findOneAndDelete({id:args._id},);
       return proyectoEliminado
-    }
+    },
 
     // Arthur y Andy ******
     //HISTORIA 14

@@ -7,16 +7,10 @@ const resolverInscripciones = {
             return inscripciones;
         },
       
-        InscripcionesPorEstudiante: async (parents, args) => {
-            const inscripcionesPorEstudiante = await ModeloInscripcion.find()
-            .populate('proyecto').populate('estudiante');
-            console.log(inscripcionesPorEstudiante.filter((inscripcion)=> inscripcion.estudiante.id = args.id ))
-            return inscripcionesPorEstudiante.filter((inscripcion)=> inscripcion.estudiante.id = args.id )
-            
-        },
+        
         FiltrarInscripcion: async (parents, args) => {
             const inscripcionFiltrada = await ModeloInscripcion.find({ estudiante: args._id })
-                .populate('proyecto')
+                .populate({path: 'proyecto',populate: {path: 'avances',},})
                 .populate('estudiante');
             return inscripcionFiltrada;
         },
@@ -34,7 +28,7 @@ const resolverInscripciones = {
     Mutation: {
         crearInscripcion: async (parents, args) => {
             const inscripcionCreada = await ModeloInscripcion.create({
-                estado: args.estado,
+                /* estado: args.estado, */
                 proyecto: args.proyecto,
                 estudiante: args.estudiante,
             });

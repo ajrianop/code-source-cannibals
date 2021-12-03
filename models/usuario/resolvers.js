@@ -70,7 +70,7 @@ const resolversUsuario = {
       },
       { new: true });
       return editarEstadoUsuario;
-    }
+    },
     
     // Arthur y Andy ******
 
