@@ -34,6 +34,22 @@ const resolversAvance = {
             { new: true });
             return avanceEditado;
           },
+
+        // Arthur y Andy ******
+
+        //  HISTORIA 18*
+        agregarObservacionesAvance: async (parents, args)=>{
+            const agregarObservacionesAvance =await ModeloAvance.findByIdAndUpdate(args._id,{
+              $addToSet : {
+                observaciones: args.observaciones,
+              },
+            },{new: true}
+            )
+            return agregarObservacionesAvance
+          },
+        
+        // Arthur y Andy ******
+
     },
 
 };
