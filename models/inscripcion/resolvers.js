@@ -3,7 +3,7 @@ import { ModeloInscripcion } from './inscripcion.js';
 const resolverInscripciones = {
     Query: {
         Inscripciones: async (parents, args) => {
-            const inscripciones = await ModeloInscripcion.find();
+            const inscripciones = await ModeloInscripcion.find().populate('proyecto').populate('estudiante');
             return inscripciones;
         },
       
@@ -41,7 +41,7 @@ const resolverInscripciones = {
                 estado:'ACEPTADO',
                 fechaIngreso: Date.now(),   
             },
-            { new: true });
+            { new: true }).populate('proyecto').populate('estudiante');
             return inscripcionAprobada;
         },
 
@@ -50,7 +50,7 @@ const resolverInscripciones = {
                 estado:'RECHAZADO',
                 fechaIngreso: Date.now(),
             },
-            { new: true });
+            { new: true }).populate('proyecto').populate('estudiante');
             return inscripcionRechaza;
         },
         // Arthur y Andy ******
