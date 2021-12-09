@@ -27,6 +27,7 @@ const typesUsuario = gql`
   type Query {
     Usuarios: [Usuario]
     Usuario(_id:String!): Usuario
+    listaFiltradaRol(rol: Enum_Rol!): [Usuario]
   }
 
   type Mutation{
@@ -41,14 +42,17 @@ const typesUsuario = gql`
 
     editarUsuario(
       _id: String!
-      nombre: String!
-      apellido: String!
-      identificacion: String!
-      correo: String!
+      nombre: String
+      apellido: String
+      identificacion: String
+      correo: String
       estado: Enum_EstadoUsuario!
     ):Usuario
 
     eliminarUsuario(_id: String!): Usuario
+
+    editarEstadoUsuario(_id:String!):Usuario
+
   }
 
 `;
