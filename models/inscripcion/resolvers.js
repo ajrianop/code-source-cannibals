@@ -50,7 +50,7 @@ const resolverInscripciones = {
         rechazarInscripcion: async (parents, args) => {
             const inscripcionRechaza = await ModeloInscripcion.findByIdAndUpdate(args.id,{
                 estado:'RECHAZADO',
-                fechaIngreso: Date.now(),
+                fechaEgreso: Date.now(),
             },
             { new: true });
             return inscripcionRechaza;
