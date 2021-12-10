@@ -14,6 +14,11 @@ const resolversAvance = {
                 .populate('creadoPor');
             return avanceFiltrado;
         },
+
+        filtrarAvanceId: async (parents, args) => {
+          const avanceFiltradoId = await ModeloAvance.findOne({ _id: args._id }).populate('proyecto').populate('creadoPor');
+          return avanceFiltradoId;
+      },
     },
 
     Mutation: {

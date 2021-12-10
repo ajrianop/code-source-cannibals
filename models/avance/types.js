@@ -14,6 +14,7 @@ type Avance {
 type Query {
     Avances: [Avance] 
     filtrarAvance(_id: String!): [Avance]
+    filtrarAvanceId(_id: String!): Avance
 }
 
 type Mutation {
