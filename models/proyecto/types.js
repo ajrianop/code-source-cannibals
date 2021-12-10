@@ -95,11 +95,17 @@ const typesProyecto = gql`
       editarFaseProyecto(
         _id: String!
         fase: Enum_FaseProyecto!
+        estado: Enum_EstadoProyecto
+        fechaInicio: Date
+        fechaFin: Date
       ):Proyecto
 
       editarEstadoProyecto(
         _id: String!
+        fase: Enum_FaseProyecto
         estado: Enum_EstadoProyecto!
+        fechaInicio: Date
+        fechaFin: Date
       ):Proyecto
 
       eliminarProyecto(_id: String!): Proyecto
