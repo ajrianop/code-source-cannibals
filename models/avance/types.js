@@ -24,7 +24,6 @@ type Mutation {
         creadoPor: String! 
     ): Avance
 
-
     editarAvance(
       _id: String!
       descripcion: String!

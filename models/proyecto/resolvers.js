@@ -50,10 +50,6 @@ const resolversProyecto = {
     crearProyecto: async (parent, args) => {
       const ProyectoCreado = await ModeloProyecto.create({
         nombre: args.nombre,
-        estado: args.estado,
-        fase: args.fase,
-        fechaInicio: args.fechaInicio,
-        fechaFin: args.fechaFin,
         presupuesto: args.presupuesto,
         lider: args.lider,
         objetivos: args.objetivos,
@@ -78,7 +74,10 @@ const resolversProyecto = {
 
     editarFaseProyecto: async (parent, args) => {
       const proyectoFaseEditado = await ModeloProyecto.findByIdAndUpdate(args._id,{
-        fase: args.fase,        
+        fase: args.fase,  
+        estado: args.estado,
+        fechaInicio: args.fechaInicio,   
+        fechaFin: args.fechaFin,    
       },
       { new: true });
       return proyectoFaseEditado;
@@ -86,7 +85,10 @@ const resolversProyecto = {
 
     editarEstadoProyecto: async (parent, args) => {
       const proyectoEstadoEditado = await ModeloProyecto.findByIdAndUpdate(args._id,{             
-        estado: args.estado,        
+        fase: args.fase,  
+        estado: args.estado,     
+        fechaInicio: args.fechaInicio,
+        fechaFin: args.fechaFin,   
       },
       { new: true });
       return proyectoEstadoEditado;
