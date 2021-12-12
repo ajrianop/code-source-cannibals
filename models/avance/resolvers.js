@@ -4,7 +4,8 @@ import { ModeloAvance } from "./avance.js"
 const resolversAvance = {
     Query: {
         Avances: async (parents, args) => {
-            const avances = await ModeloAvance.find().populate('proyecto').populate('creadoPor');
+            const avances = await ModeloAvance.find().populate('proyecto')
+            .populate('creadoPor').populate({path: 'proyecto',populate: {path: 'lider',},});
             return avances;
         },
 
