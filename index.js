@@ -26,7 +26,7 @@ const server = new ApolloServer({
     if (token) {
       const userData = getUserData(token);
       if (userData) {
-       // return { userData };
+        return { userData };
       }
     }
     return null;
