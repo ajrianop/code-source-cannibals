@@ -6,13 +6,14 @@ type Avance {
     _id: ID!
     fecha: Date!
     descripcion: String!
-    observaciones: [String]
+    observaciones: String
     proyecto: Proyecto!
     creadoPor: Usuario!
 }
 
 type Query {
     Avances: [Avance] 
+    Avance(_id: String!):Avance
     filtrarAvance(_id: String!): [Avance]
 }
 
