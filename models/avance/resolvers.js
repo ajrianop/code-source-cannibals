@@ -47,9 +47,9 @@ const resolversAvance = {
         //  HISTORIA 18*
         agregarObservacionesAvance: async (parents, args)=>{
             const agregarObservacionesAvance =await ModeloAvance.findByIdAndUpdate(args._id,{
-              $addToSet : {
+              //$addToSet : {
                 observaciones: args.observaciones,
-              },
+              // },
             },{new: true}
             )
             return agregarObservacionesAvance
