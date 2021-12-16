@@ -122,6 +122,12 @@ const typesProyecto = gql`
         tipo: Enum_TipoObjetivo!
         ):Proyecto
 
+
+      editarObjetivo(idProyecto: String!, indexObjetivo: Int!, campos: camposObjetivo!): Proyecto
+
+      eliminarObjetivo(idProyecto: String!, idObjetivo: String!): Proyecto
+ 
+
   }
   
 

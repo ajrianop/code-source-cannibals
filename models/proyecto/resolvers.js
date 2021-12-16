@@ -117,6 +117,19 @@ const resolversProyecto = {
       return proyectoConObjetivo
     },
 
+    editarObjetivo: async (parent, args) => {
+      const proyectoEditado = await ModeloProyecto.findByIdAndUpdate(
+        args.idProyecto,
+        {
+          $set: {
+            [`objetivos.${args.indexObjetivo}.descripcion`]: args.campos.descripcion,
+            [`objetivos.${args.indexObjetivo}.tipo`]: args.campos.tipo,
+          },
+        },
+        { new: true }
+      );
+      return proyectoEditado;
+    },
     // Arthur y Andy ******
   },
   
